@@ -5,13 +5,18 @@ import qrcode
 import math
 import sys
 import random
+import hashlib
+import sys
 
 
 TARGET_WIDTH = 600
 TARGET_HEIGHT = 448
 FOOTER_MARGIN = 10
 OUTPUT_DIR = "build"
-JOKES = "https://raw.githubusercontent.com/Sv443/JokeAPI/master/data/jokes/regular/jokes-en.json"
+JOKES_FILE = "jokes-en.json"
+JOKES = f"https://raw.githubusercontent.com/Sv443/JokeAPI/master/data/jokes/regular/{JOKES_FILE}"
+HASH_FILE = f"{JOKES_FILE}.sha256.txt"
+HASH_URL = f"https://pimoroni.github.io/feed2image/{HASH_FILE}"
 
 
 font = ImageFont.truetype(Roboto, 50)
@@ -67,18 +72,28 @@ def text_in_rect(canvas, text, font, color, rect, align='left', valign='top', li
         font = ImageFont.truetype(font.path, font.size - 1)
 
 
-jokes = requests.get(JOKES).json()
+response = requests.get(JOKES)
+oldhash = requests.get(HASH_URL).text
 
+hash = hashlib.sha256(response.content).hexdigest()
+
+if hash == oldhash:
+    print(f"Nothing to do, {JOKES_FILE} has not changed!")
+    sys.exit(0)
+
+# Write out the new hash
+with open(f"{OUTPUT_DIR}/{HASH_FILE}", "w") as f:
+    f.write(hash)
+
+# Get the jokes as JSON
+jokes = response.json()
+
+# Check we understand the .json format!
 if jokes["info"]["formatVersion"] != 3:
     raise RuntimeError("Unrecognised jokes format!")
 
 # Select safe jokes
 jokes = [joke for joke in jokes["jokes"] if joke.get("safe", False) == True]
-
-# Pick 24 jokes at random
-jokes = random.sample(jokes, 24)
-
-print(jokes)
 
 
 def mkqrcode(text):
@@ -130,8 +145,11 @@ def render_common(image, joke):
     text_in_rect(draw, "curated by jokeapi.dev", font, (0, 0, 0), (FOOTER_MARGIN, qr_y + qr_h, 160, qr_y + qr_h + 20))
 
 
+ids = open(f"{OUTPUT_DIR}/jokeapi-ids.txt", "w")
+
 for hour, joke in enumerate(jokes):
     twopart = joke.get("type") == "twopart"
+    id = joke.get("id")
 
     output_image = Image.new("RGB", (TARGET_WIDTH, TARGET_HEIGHT), color=(255, 255, 255))
 
@@ -142,4 +160,7 @@ for hour, joke in enumerate(jokes):
 
     render_common(output_image, joke)
 
-    output_image.save(f"{OUTPUT_DIR}/jokeapi-joke-of-the-hour-{hour}.jpg", optimize=True, quality=70)
+    output_image.save(f"{OUTPUT_DIR}/jokeapi-{id}-{TARGET_WIDTH}x{TARGET_HEIGHT}.jpg", optimize=True, quality=70)
+    ids.write(f"{id}\n")
+
+ids.close()
