@@ -29,4 +29,6 @@ jobs:
         with:
             github_token: ${{ secrets.GITHUB_TOKEN }}
             publish_dir: ./build
+            keep_files: true  # Some plugins do not always rebuild!!
+            allow_empty_commit: true  # Add a commit anyway to show we tried
             #cname: inkyframe.pimoroni.com

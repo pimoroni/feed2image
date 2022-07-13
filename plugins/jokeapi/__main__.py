@@ -9,6 +9,7 @@ import hashlib
 import sys
 
 
+GENERATOR_VERSION = "0.0.1"  # Bump to force a hash check fail!
 TARGET_WIDTH = 600
 TARGET_HEIGHT = 448
 FOOTER_MARGIN = 10
@@ -73,9 +74,9 @@ def text_in_rect(canvas, text, font, color, rect, align='left', valign='top', li
 
 
 response = requests.get(JOKES)
-oldhash = requests.get(HASH_URL).text
+oldhash = requests.get(HASH_URL).text + "-" + GENERATOR_VERSION
 
-hash = hashlib.sha256(response.content).hexdigest()
+hash = hashlib.sha256(response.content).hexdigest() + "-" + GENERATOR_VERSION
 
 if hash == oldhash:
     print(f"Nothing to do, {JOKES_FILE} has not changed!")
