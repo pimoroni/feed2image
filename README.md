@@ -11,11 +11,15 @@ Includes a QR Code linking to the image, and the alt text below.
 Daily:
 
 ```
-python3 xkcd2jpg.py
+python3 -m plugins.xkcd
 ```
+
+Outputs: `build/xkcd-daily.jpg`
 
 Specific XKCD:
 
 ```
-python3 xkcd2jpg.py <number>
+python3 -m plugins.xkcd <number>
 ```
+
+Outputs: `build/xkcd-<number>.jpg`

@@ -7,12 +7,14 @@ import sys
 
 TARGET_WIDTH = 600
 TARGET_HEIGHT = 448
+FOOTER_MARGIN = 10
+OUTPUT_DIR = "build"
 
 
 font = ImageFont.truetype(Roboto, 18)
 
 
-def text_in_rect(canvas, text, font, color, rect, align='left', line_spacing=1.1):
+def text_in_rect(canvas, text, font, color, rect, align='left', valign='top', line_spacing=1.1):
     width = rect[2] - rect[0]
     height = rect[3] - rect[1]
 
@@ -36,7 +38,10 @@ def text_in_rect(canvas, text, font, color, rect, align='left', line_spacing=1.1
 
         if len(lines) <= max_lines and len(words) == 0:
             # Solution is found, render the text.
-            y = int(rect[1] + (height / 2) - (len(lines) * line_height / 2) - (line_height - font.size) / 2)
+            if valign == 'top':
+                y = int(rect[1])
+            else:
+                y = int(rect[1] + (height / 2) - (len(lines) * line_height / 2) - (line_height - font.size) / 2)
 
             bounds = [rect[2], y, rect[0], y + len(lines) * line_height]
 
@@ -62,8 +67,9 @@ try:
     suffix = str(number)
 
 except (IndexError, ValueError):
-    metadata = requests.get("https://xkcd.com/2641/info.0.json").json()
+    metadata = requests.get("https://xkcd.com/info.0.json").json()
     suffix = "daily"
+
 
 response = requests.get(metadata.get("img"), stream=True)
 
@@ -91,8 +97,11 @@ qr.add_data("https://xkcd.com/{}/".format(metadata.get("num")))
 qr.make(fit=True)
 qr_image = qr.make_image(fill_color="black", back_color="white")
 qr_w, qr_h = qr_image.size
-qr_x = (TARGET_WIDTH - 100) + int((100 - qr_w) / 2)
-qr_y = (TARGET_HEIGHT - 100) + int((100 - qr_h) / 2)
+qr_x = TARGET_WIDTH - qr_w - FOOTER_MARGIN
+qr_y = TARGET_HEIGHT - qr_h - FOOTER_MARGIN - 20
+
+text_x = FOOTER_MARGIN
+text_y = qr_y
 
 output_image = Image.new("RGB", (TARGET_WIDTH, TARGET_HEIGHT), color=(255, 255, 255))
 
@@ -101,6 +110,9 @@ draw = ImageDraw.Draw(output_image)
 output_image.paste(image, (o_x, o_y))
 output_image.paste(qr_image, (qr_x, qr_y))
 
-text_in_rect(draw, metadata.get("alt"), font, (0, 0, 0), (0, TARGET_HEIGHT - 100, TARGET_WIDTH - 100, TARGET_HEIGHT), line_spacing=1.1)
+text = metadata.get("alt")
 
-output_image.save(f"xkcd2bin-{suffix}.jpg")
+text_in_rect(draw, text, font, (0, 0, 0), (text_x, text_y, qr_x - FOOTER_MARGIN, text_y + qr_h), line_spacing=1.1)
+text_in_rect(draw, "xkcd.com", font, (0, 0, 0), (qr_x, qr_y + qr_h, qr_x + qr_w, qr_y + qr_h + 20))
+
+output_image.save(f"{OUTPUT_DIR}/xkcd-{suffix}.jpg")
