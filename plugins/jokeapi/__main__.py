@@ -115,14 +115,19 @@ def render_onepart(image, joke):
 def render_common(image, joke):
     draw = ImageDraw.Draw(image)
 
-    qr_image = mkqrcode("https://jokeapi.dev/")
+    web_link    = "https://jokeapi.dev/"
+    donate_link = "https://github.com/sponsors/Sv443"
+
+    qr_image = mkqrcode(donate_link)
     qr_w, qr_h = qr_image.size
     qr_x = TARGET_WIDTH - qr_w - FOOTER_MARGIN
     qr_y = TARGET_HEIGHT - qr_h - FOOTER_MARGIN - 20
+    old_x = qr_x
 
     image.paste(qr_image, (qr_x, qr_y))
 
-    text_in_rect(draw, "jokeapi.dev", font, (0, 0, 0), (qr_x, qr_y + qr_h, qr_x + qr_w, qr_y + qr_h + 20))
+    text_in_rect(draw, "donate <3", font, (0, 0, 0), (qr_x, qr_y + qr_h, qr_x + qr_w, qr_y + qr_h + 20))
+    text_in_rect(draw, "curated by jokeapi.dev", font, (0, 0, 0), (FOOTER_MARGIN, qr_y + qr_h, 160, qr_y + qr_h + 20))
 
 
 for hour, joke in enumerate(jokes):
