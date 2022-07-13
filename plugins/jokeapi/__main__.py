@@ -8,8 +8,13 @@ import random
 import hashlib
 import sys
 
+"""
+0.0.2
+- edit list of joke IDs to include a count prefix
+"""
 
-GENERATOR_VERSION = "0.0.1"  # Bump to force a hash check fail!
+
+GENERATOR_VERSION = "0.0.2"  # Bump to force a hash check fail!
 TARGET_WIDTH = 600
 TARGET_HEIGHT = 448
 FOOTER_MARGIN = 10
@@ -147,6 +152,8 @@ def render_common(image, joke):
 
 
 ids = open(f"{OUTPUT_DIR}/jokeapi-ids.txt", "w")
+
+ids.write(f"{len(jokes)}\n") # Add header with count of jokes for RAM-constrained random selection
 
 for hour, joke in enumerate(jokes):
     twopart = joke.get("type") == "twopart"
