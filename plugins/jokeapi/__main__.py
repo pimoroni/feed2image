@@ -74,7 +74,7 @@ def text_in_rect(canvas, text, font, color, rect, align='left', valign='top', li
 
 
 response = requests.get(JOKES)
-oldhash = requests.get(HASH_URL).text + "-" + GENERATOR_VERSION
+oldhash = requests.get(HASH_URL).text
 
 hash = hashlib.sha256(response.content).hexdigest() + "-" + GENERATOR_VERSION
 
