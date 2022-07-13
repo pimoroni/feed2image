@@ -1,0 +1,4 @@
+qrcode
+fonts
+font-roboto
+Pillow
