@@ -7,22 +7,41 @@ import sys
 import random
 import hashlib
 import sys
+import json
 
 """
+0.0.3
+- filter some jokes
+- output full text of processed jokes to .json
+
 0.0.2
 - edit list of joke IDs to include a count prefix
 """
 
 
-GENERATOR_VERSION = "0.0.2"  # Bump to force a hash check fail!
+GENERATOR_VERSION = "0.0.3"  # Bump to force a hash check fail!
 TARGET_WIDTH = 600
 TARGET_HEIGHT = 448
 FOOTER_MARGIN = 10
 OUTPUT_DIR = "build"
+
 JOKES_FILE = "jokes-en.json"
 JOKES = f"https://raw.githubusercontent.com/Sv443/JokeAPI/master/data/jokes/regular/{JOKES_FILE}"
 HASH_FILE = f"{JOKES_FILE}.sha256.txt"
 HASH_URL = f"https://pimoroni.github.io/feed2image/{HASH_FILE}"
+
+
+# The "safe" jokes list is subjective
+# filter out a few we probably don't want to sign off on!
+FILTER_JOKES = [
+    136,  # Yeesh
+    76,   # I'm part deaf, okay!
+    87,   # ISWU
+    114,  # Uhhh
+    169,  # While I'm being a pedant
+    188,  # Based.
+    206,  # Cancelled.
+]
 
 
 font = ImageFont.truetype(Roboto, 50)
@@ -100,6 +119,12 @@ if jokes["info"]["formatVersion"] != 3:
 
 # Select safe jokes
 jokes = [joke for joke in jokes["jokes"] if joke.get("safe", False) == True]
+
+# Filter some, uh, jokes we can't quite sign off on
+jokes = [joke for joke in jokes if joke.get("id") not in FILTER_JOKES]
+
+with open(f"{OUTPUT_DIR}/{JOKES_FILE}", "w", encoding="utf-8") as f:
+    json.dump(jokes, f, ensure_ascii=False, indent=4)
 
 
 def mkqrcode(text):
