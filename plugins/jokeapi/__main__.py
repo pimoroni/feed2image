@@ -106,7 +106,6 @@ response = requests.get(JOKES)
 oldhash = requests.get(HASH_URL).text
 
 hash = hashlib.sha256(response.content).hexdigest() + "-" + GENERATOR_VERSION
-hash = ""
 
 if hash == oldhash:
     print(f"Nothing to do, {JOKES_FILE} has not changed!")
