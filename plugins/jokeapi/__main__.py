@@ -20,8 +20,8 @@ import json
 
 
 GENERATOR_VERSION = "0.0.3"  # Bump to force a hash check fail!
-TARGET_WIDTH = 600
-TARGET_HEIGHT = 448
+DEFAULT_WIDTH = 600
+DEFAULT_HEIGHT = 448
 FOOTER_MARGIN = 10
 OUTPUT_DIR = "build"
 
@@ -45,6 +45,11 @@ FILTER_JOKES = [
 
 
 font = ImageFont.truetype(Roboto, 50)
+
+width, height = DEFAULT_WIDTH, DEFAULT_HEIGHT
+
+if "x" in sys.argv[1]:
+    width, height = [int(d) for d in sys.argv[1].split("x")]
 
 
 def text_in_rect(canvas, text, font, color, rect, align='left', valign='top', line_spacing=1.1):
@@ -101,6 +106,7 @@ response = requests.get(JOKES)
 oldhash = requests.get(HASH_URL).text
 
 hash = hashlib.sha256(response.content).hexdigest() + "-" + GENERATOR_VERSION
+hash = ""
 
 if hash == oldhash:
     print(f"Nothing to do, {JOKES_FILE} has not changed!")
@@ -144,10 +150,10 @@ def render_twopart(image, joke):
     setup = joke.get("setup")
     delivery = joke.get("delivery")
 
-    section_height = int((TARGET_HEIGHT - 100 - FOOTER_MARGIN) / 2)
-    text_in_rect(draw, setup, font, (255, 0, 0), (FOOTER_MARGIN, FOOTER_MARGIN, TARGET_WIDTH - FOOTER_MARGIN, FOOTER_MARGIN + section_height))
+    section_height = int((height - 100 - FOOTER_MARGIN) / 2)
+    text_in_rect(draw, setup, font, (255, 0, 0), (FOOTER_MARGIN, FOOTER_MARGIN, width - FOOTER_MARGIN, FOOTER_MARGIN + section_height))
 
-    text_in_rect(draw, delivery, font, (0, 0, 255), (FOOTER_MARGIN, FOOTER_MARGIN + section_height, TARGET_WIDTH - FOOTER_MARGIN, section_height + section_height))
+    text_in_rect(draw, delivery, font, (0, 0, 255), (FOOTER_MARGIN, FOOTER_MARGIN + section_height, width - FOOTER_MARGIN, section_height + section_height))
 
 
 def render_onepart(image, joke):
@@ -155,7 +161,7 @@ def render_onepart(image, joke):
 
     text = joke.get("joke").replace("\n", "\n\n")
 
-    text_in_rect(draw, text, font, (255, 0, 0), (FOOTER_MARGIN, FOOTER_MARGIN, TARGET_WIDTH - FOOTER_MARGIN, TARGET_HEIGHT - 100))
+    text_in_rect(draw, text, font, (255, 0, 0), (FOOTER_MARGIN, FOOTER_MARGIN, width - FOOTER_MARGIN, height - 100))
 
 
 def render_common(image, joke):
@@ -166,8 +172,8 @@ def render_common(image, joke):
 
     qr_image = mkqrcode(donate_link)
     qr_w, qr_h = qr_image.size
-    qr_x = TARGET_WIDTH - qr_w - FOOTER_MARGIN
-    qr_y = TARGET_HEIGHT - qr_h - FOOTER_MARGIN - 20
+    qr_x = width - qr_w - FOOTER_MARGIN
+    qr_y = height - qr_h - FOOTER_MARGIN - 20
     old_x = qr_x
 
     image.paste(qr_image, (qr_x, qr_y))
@@ -184,7 +190,7 @@ for hour, joke in enumerate(jokes):
     twopart = joke.get("type") == "twopart"
     id = joke.get("id")
 
-    output_image = Image.new("RGB", (TARGET_WIDTH, TARGET_HEIGHT), color=(255, 255, 255))
+    output_image = Image.new("RGB", (width, height), color=(255, 255, 255))
 
     if twopart:
         render_twopart(output_image, joke)
@@ -193,7 +199,7 @@ for hour, joke in enumerate(jokes):
 
     render_common(output_image, joke)
 
-    output_image.save(f"{OUTPUT_DIR}/jokeapi-{id}-{TARGET_WIDTH}x{TARGET_HEIGHT}.jpg", optimize=True, quality=70)
+    output_image.save(f"{OUTPUT_DIR}/jokeapi-{id}-{width}x{height}.jpg", optimize=True, quality=70)
     ids.write(f"{id}\n")
 
 ids.close()

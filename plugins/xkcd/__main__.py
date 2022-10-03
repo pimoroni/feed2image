@@ -5,13 +5,15 @@ import qrcode
 import math
 import sys
 
-TARGET_WIDTH = 600
-TARGET_HEIGHT = 448
+DEFAULT_WIDTH = 600
+DEFAULT_HEIGHT = 448
 FOOTER_MARGIN = 10
 OUTPUT_DIR = "build"
 
 
 font = ImageFont.truetype(Roboto, 18)
+width = DEFAULT_WIDTH
+height = DEFAULT_HEIGHT
 
 
 def text_in_rect(canvas, text, font, color, rect, align='left', valign='top', line_spacing=1.1):
@@ -61,8 +63,15 @@ def text_in_rect(canvas, text, font, color, rect, align='left', valign='top', li
         font = ImageFont.truetype(font.path, font.size - 1)
 
 
+# Read "WIDTHxHEIGHT" from args and set target dimensions
+no_idx = 1
+if "x" in sys.argv[1]:
+    width, height = [int(d) for d in sys.argv[1].split("x")]
+    no_idx += 1 # Assume next arg is the XKCD number
+
+
 try:
-    number = int(sys.argv[1])
+    number = int(sys.argv[no_idx])
     metadata = requests.get(f"https://xkcd.com/{number}/info.0.json").json()
     suffix = str(number)
 
@@ -75,7 +84,7 @@ response = requests.get(metadata.get("img"), stream=True)
 
 image = Image.open(response.raw)
 w, h = image.size
-ratio = min(TARGET_WIDTH / w, (TARGET_HEIGHT - 100) / h)
+ratio = min(width / w, (height - 100) / h)
 
 if ratio < 1.0:
     w = int(w * ratio)
@@ -83,8 +92,8 @@ if ratio < 1.0:
 
     image = image.resize((w, h))
 
-o_x = int((TARGET_WIDTH - w) / 2)
-o_y = int((TARGET_HEIGHT - 100 - h) / 2)
+o_x = int((width - w) / 2)
+o_y = int((height - 100 - h) / 2)
 
 print(metadata)
 
@@ -97,13 +106,13 @@ qr.add_data("https://xkcd.com/{}/".format(metadata.get("num")))
 qr.make(fit=True)
 qr_image = qr.make_image(fill_color="black", back_color="white")
 qr_w, qr_h = qr_image.size
-qr_x = TARGET_WIDTH - qr_w - FOOTER_MARGIN
-qr_y = TARGET_HEIGHT - qr_h - FOOTER_MARGIN - 20
+qr_x = width - qr_w - FOOTER_MARGIN
+qr_y = height - qr_h - FOOTER_MARGIN - 20
 
 text_x = FOOTER_MARGIN
 text_y = qr_y
 
-output_image = Image.new("RGB", (TARGET_WIDTH, TARGET_HEIGHT), color=(255, 255, 255))
+output_image = Image.new("RGB", (width, height), color=(255, 255, 255))
 
 draw = ImageDraw.Draw(output_image)
 
@@ -115,4 +124,8 @@ text = metadata.get("alt")
 text_in_rect(draw, text, font, (0, 0, 0), (text_x, text_y, qr_x - FOOTER_MARGIN, text_y + qr_h), line_spacing=1.1)
 text_in_rect(draw, "xkcd.com", font, (0, 0, 0), (qr_x, qr_y + qr_h, qr_x + qr_w, qr_y + qr_h + 20))
 
-output_image.save(f"{OUTPUT_DIR}/xkcd-{suffix}.jpg")
+dimensions = ""
+if (width, height) != (DEFAULT_WIDTH, DEFAULT_HEIGHT):
+    dimensions = f"-{width}x{height}"
+
+output_image.save(f"{OUTPUT_DIR}/xkcd{dimensions}-{suffix}.jpg")
