@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Clone Source
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Make Directories
         run: mkdir -p build
@@ -22,7 +22,7 @@ jobs:
 
       - name: Build Resources
         shell: bash
-        run: scripts/build.sh
+        run: scripts/build.sh ${GITHUB_SHA}
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3

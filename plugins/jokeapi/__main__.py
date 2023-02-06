@@ -51,6 +51,11 @@ width, height = DEFAULT_WIDTH, DEFAULT_HEIGHT
 if "x" in sys.argv[1]:
     width, height = [int(d) for d in sys.argv[1].split("x")]
 
+try:
+    SHA = sys.argv[2]
+except IndexError:
+    SHA = ""
+
 
 def text_in_rect(canvas, text, font, color, rect, align='left', valign='top', line_spacing=1.1):
     width = rect[2] - rect[0]
@@ -106,6 +111,7 @@ response = requests.get(JOKES)
 oldhash = requests.get(HASH_URL).text
 
 hash = hashlib.sha256(response.content).hexdigest() + "-" + GENERATOR_VERSION
+hash = f"{hash}-{SHA}"
 
 if hash == oldhash:
     print(f"Nothing to do, {JOKES_FILE} has not changed!")

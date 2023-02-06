@@ -1,0 +1,29 @@
+name: Test Build Output
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Clone Source
+        uses: actions/checkout@v3
+
+      - name: Make Directories
+        run: mkdir -p build
+
+      - name: Install Dependencies
+        shell: bash
+        run: scripts/requirements.sh
+
+      - name: Build Resources
+        shell: bash
+        run: scripts/build.sh ${GITHUB_SHA}
+
+      - name: Upload files as artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: Images
+          path: build
