@@ -57,13 +57,18 @@ except IndexError:
     SHA = ""
 
 
+def text_size(font, text):
+    bbox = font.getbbox(text)
+    return bbox[2] - bbox[0]
+
+
 def text_in_rect(canvas, text, font, color, rect, align='left', valign='top', line_spacing=1.1):
     width = rect[2] - rect[0]
     height = rect[3] - rect[1]
 
     # Given a rectangle, reflow and scale text to fit, centred
     while font.size > 0:
-        space_width = font.getsize(" ")[0]
+        space_width = text_size(font, " ")
         line_height = int(font.size * line_spacing)
         max_lines = math.floor(height / line_height)
         lines = []
@@ -77,7 +82,7 @@ def text_in_rect(canvas, text, font, color, rect, align='left', valign='top', li
             while len(lines) < max_lines and len(words) > 0:
                 line = []
 
-                while len(words) > 0 and font.getsize(" ".join(line + [words[0]]))[0] <= width:
+                while len(words) > 0 and text_size(font, " ".join(line + [words[0]])) <= width:
                     line.append(words.pop(0))
 
                 lines.append(" ".join(line))
@@ -92,7 +97,7 @@ def text_in_rect(canvas, text, font, color, rect, align='left', valign='top', li
             bounds = [rect[2], y, rect[0], y + len(lines) * line_height]
 
             for line in lines:
-                line_width = font.getsize(line)[0]
+                line_width = text_size(font, line)
                 if align == 'center':
                     x = int(rect[0] + (width / 2) - (line_width / 2))
                 else:
@@ -206,5 +211,8 @@ for hour, joke in enumerate(jokes):
 
     output_image.save(f"{OUTPUT_DIR}/jokeapi-{id}-{width}x{height}.jpg", optimize=True, quality=70)
     ids.write(f"{id}\n")
+
+    del joke["flags"]
+    open(f"{OUTPUT_DIR}/jokeapi-{id}.json", "w").write(json.dumps(joke))
 
 ids.close()
