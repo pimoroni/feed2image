@@ -4,6 +4,7 @@ from PIL import Image, ImageDraw, ImageFont
 from fonts.ttf import Roboto
 import qrcode
 import math
+import json
 import sys
 
 DEFAULT_WIDTH = 600
@@ -88,7 +89,14 @@ except (IndexError, ValueError):
     apod_date = str(datetime.datetime.now().date())
     suffix = "daily"
 
-metadata = requests.get(f"https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY&thumbs=true&date={apod_date}").json()
+response = requests.get(f"https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY&thumbs=true&date={apod_date}")
+
+try:
+    metadata = response.json()
+
+except json.decoder.JSONDecodeError:
+    print(response.text)
+    sys.exit(1)
 
 print(apod_date, metadata)
 
