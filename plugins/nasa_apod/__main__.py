@@ -89,13 +89,15 @@ except (IndexError, ValueError):
     apod_date = str(datetime.datetime.now().date())
     suffix = "daily"
 
-response = requests.get(f"https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY&thumbs=true&date={apod_date}")
+apod_url = f"https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY&thumbs=true&date={apod_date}"
+print(f"Fetching: {apod_url}")
+response = requests.get(apod_url)
 
 try:
     metadata = response.json()
 
 except json.decoder.JSONDecodeError:
-    print(response.text)
+    print(f"JSON Decode error. Response: {response.text}")
     sys.exit(1)
 
 print(apod_date, metadata)
