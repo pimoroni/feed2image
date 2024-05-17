@@ -9,6 +9,7 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    continue-on-error: true
     steps:
       - name: Clone Source
         uses: actions/checkout@v4
