@@ -22,7 +22,7 @@ def text_in_rect(canvas, text, font, color, rect, align='left', valign='top', li
 
     # Given a rectangle, reflow and scale text to fit, centred
     while font.size > 0:
-        space_width = font.getsize(" ")[0]
+        space_width = font.getbbox(" ")[2]
         line_height = int(font.size * line_spacing)
         max_lines = math.floor(height / line_height)
         lines = []
@@ -33,7 +33,7 @@ def text_in_rect(canvas, text, font, color, rect, align='left', valign='top', li
         while len(lines) < max_lines and len(words) > 0:
             line = []
 
-            while len(words) > 0 and font.getsize(" ".join(line + [words[0]]))[0] <= width:
+            while len(words) > 0 and font.getbbox(" ".join(line + [words[0]]))[2] <= width:
                 line.append(words.pop(0))
 
             lines.append(" ".join(line))
@@ -48,7 +48,7 @@ def text_in_rect(canvas, text, font, color, rect, align='left', valign='top', li
             bounds = [rect[2], y, rect[0], y + len(lines) * line_height]
 
             for line in lines:
-                line_width = font.getsize(line)[0]
+                line_width = font.getbbox(line)[2]
                 if align == 'center':
                     x = int(rect[0] + (width / 2) - (line_width / 2))
                 else:
