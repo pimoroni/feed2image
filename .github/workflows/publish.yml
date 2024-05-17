@@ -9,9 +9,10 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    continue-on-error: true
     steps:
       - name: Clone Source
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Make Directories
         run: mkdir -p build
@@ -25,7 +26,7 @@ jobs:
         run: scripts/build.sh ${GITHUB_SHA}
 
       - name: Deploy
-        uses: peaceiris/actions-gh-pages@v3
+        uses: peaceiris/actions-gh-pages@v4
         with:
             github_token: ${{ secrets.GITHUB_TOKEN }}
             publish_dir: ./build
