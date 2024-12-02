@@ -160,10 +160,10 @@ output_image = Image.new("RGB", (width, height), color=(255, 255, 255))
 
 draw = ImageDraw.Draw(output_image)
 
-output_image.paste(image, (o_x, o_y))
+output_image.paste(image, (o_x, o_y, o_x + new_w, o_y + new_h))
 
 if INCLUDE_TEXT:
-    output_image.paste(qr_image, (qr_x, qr_y))
+    output_image.paste(qr_image, (qr_x, qr_y, qr_x + qr_w, qr_y + qr_h))
 
     text = metadata.get("title")
 

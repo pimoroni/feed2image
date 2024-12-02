@@ -186,7 +186,7 @@ def render_common(image, joke):
     qr_y = height - qr_h - FOOTER_MARGIN - 20
     old_x = qr_x
 
-    image.paste(qr_image, (qr_x, qr_y))
+    image.paste(qr_image, (qr_x, qr_y, qr_x + qr_w, qr_y + qr_h))
 
     text_in_rect(draw, "donate <3", font, (0, 0, 0), (qr_x, qr_y + qr_h, qr_x + qr_w, qr_y + qr_h + 20))
     text_in_rect(draw, "curated by jokeapi.dev", font, (0, 0, 0), (FOOTER_MARGIN, qr_y + qr_h, 160, qr_y + qr_h + 20))
