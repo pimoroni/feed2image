@@ -26,7 +26,7 @@ FOOTER_MARGIN = 10
 OUTPUT_DIR = "build"
 
 JOKES_FILE = "jokes-en.json"
-JOKES = f"https://raw.githubusercontent.com/Sv443/JokeAPI/master/data/jokes/regular/{JOKES_FILE}"
+JOKES = f"https://raw.githubusercontent.com/Sv443-Network/JokeAPI/refs/heads/main/data/jokes/regular/{JOKES_FILE}"
 HASH_FILE = f"{JOKES_FILE}.sha256.txt"
 HASH_URL = f"https://pimoroni.github.io/feed2image/{HASH_FILE}"
 
