@@ -117,7 +117,7 @@ output_image = Image.new("RGB", (width, height), color=(255, 255, 255))
 draw = ImageDraw.Draw(output_image)
 
 output_image.paste(image, (o_x, o_y, o_x + w, o_y + h))
-output_image.paste(qr_image, (qr_x, qr_y, qr_x + w, qr_y + h))
+output_image.paste(qr_image, (qr_x, qr_y, qr_x + qr_w, qr_y + qr_h))
 
 text = metadata.get("alt")
 
