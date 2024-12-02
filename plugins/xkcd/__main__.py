@@ -104,7 +104,7 @@ qr = qrcode.QRCode(
 )
 qr.add_data("https://xkcd.com/{}/".format(metadata.get("num")))
 qr.make(fit=True)
-qr_image = qr.make_image(fill_color="black", back_color="white")
+qr_image = qr.make_image(fill_color="black", back_color="white").get_image()
 qr_w, qr_h = qr_image.size
 qr_x = width - qr_w - FOOTER_MARGIN
 qr_y = height - qr_h - FOOTER_MARGIN - 20

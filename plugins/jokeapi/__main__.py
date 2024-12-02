@@ -151,7 +151,7 @@ def mkqrcode(text):
     )
     qr.add_data(text)
     qr.make(fit=True)
-    return qr.make_image(fill_color="black", back_color="white")
+    return qr.make_image(fill_color="black", back_color="white").get_image()
 
 
 def render_twopart(image, joke):
@@ -181,6 +181,7 @@ def render_common(image, joke):
     donate_link = "https://github.com/sponsors/Sv443"
 
     qr_image = mkqrcode(donate_link)
+    print(qr_image)
     qr_w, qr_h = qr_image.size
     qr_x = width - qr_w - FOOTER_MARGIN
     qr_y = height - qr_h - FOOTER_MARGIN - 20
