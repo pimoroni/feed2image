@@ -1,0 +1,2 @@
+requests==2.34.2
+setuptools==80.0.0

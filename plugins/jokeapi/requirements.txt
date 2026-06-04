@@ -1,3 +1,5 @@
+requests
+setuptools==80.0.0
 qrcode
 fonts
 font-roboto
