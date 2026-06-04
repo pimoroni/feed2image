@@ -6,6 +6,7 @@ import qrcode
 import math
 import json
 import sys
+import os
 
 DEFAULT_WIDTH = 600
 DEFAULT_HEIGHT = 448
@@ -15,9 +16,13 @@ TEXT_BOX_PADDING = 5
 INCLUDE_TEXT = False
 
 
+API_KEY = os.getenv("NASA_APOD_KEY", "DEMO_KEY")
+
+if API_KEY == "DEMO_KEY":
+    print("Could not find NASA_APOD_KEY, using DEMO_KEY!")
+
+
 font = ImageFont.truetype(Roboto, 18)
-width = DEFAULT_WIDTH
-height = DEFAULT_HEIGHT
 
 
 def text_in_rect(canvas, text, font, color, bg_color, rect, align='left', valign='top', line_spacing=1.1):
@@ -74,11 +79,18 @@ def text_in_rect(canvas, text, font, color, bg_color, rect, align='left', valign
         font = ImageFont.truetype(font.path, font.size - 1)
 
 
+def size(s):
+    w, h = s.split("x")
+    return int(w), int(h)
+
+
 # Read "WIDTHxHEIGHT" from args and set target dimensions
 no_idx = 1
 if "x" in sys.argv[1]:
-    width, height = [int(d) for d in sys.argv[1].split("x")]
+    sizes = [size(d) for d in sys.argv[1].split(",")]
     no_idx += 1 # Assume next arg is the APOD date
+else:
+    sizes = [(DEFAULT_WIDTH, DEFAULT_HEIGHT)]
 
 
 try:
@@ -89,15 +101,24 @@ except (IndexError, ValueError):
     apod_date = str(datetime.datetime.now().date())
     suffix = "daily"
 
-apod_url = f"https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY&thumbs=true&date={apod_date}"
-print(f"Fetching: {apod_url}")
-response = requests.get(apod_url)
+metadata = None
 
-try:
-    metadata = response.json()
+for attempt in range(4):
+    apod_url = f"https://api.nasa.gov/planetary/apod?api_key=XXXXX&thumbs=true&date={apod_date}"
+    print(f"Fetching: {apod_url}")
 
-except json.decoder.JSONDecodeError:
-    print(f"JSON Decode error. Response: {response.text}")
+    apod_url = f"https://api.nasa.gov/planetary/apod?api_key={API_KEY}&thumbs=true&date={apod_date}"
+    response = requests.get(apod_url)
+
+    try:
+        metadata = response.json()
+        break
+
+    except json.decoder.JSONDecodeError:
+        print(f"JSON Decode error. Response: {response.text}")
+
+if attempt is None:
+    print(f"Failed to fetch apod JSON.")
     sys.exit(1)
 
 print(apod_date, metadata)
@@ -113,65 +134,71 @@ print(f"Image URL: {image_url}")
 
 response = requests.get(image_url, stream=True)
 
-image = Image.open(response.raw)
-w, h = image.size
+source_image = Image.open(response.raw)
 
-new_w, new_h = max(width, height), max(width, height)
+for width, height in sizes:
+    print(f"Resizing to {width}x{height}")
+    image = source_image.copy()
+    w, h = image.size
 
-if w > h:
-    new_w = int(w * (new_h / h))
-else:
-    new_h = int(h * (new_w / w))
+    new_w, new_h = max(width, height), max(width, height)
 
-image = image.resize((new_w, new_h))
+    if w > h:
+        new_w = int(w * (new_h / h))
+    else:
+        new_h = int(h * (new_w / w))
 
-"""
-ratio = min(width / w, height / h)
+    image = image.resize((new_w, new_h))
 
-if ratio < 1.0:
-    w = int(w * ratio)
-    h = int(h * ratio)
+    """
+    ratio = min(width / w, height / h)
 
-    image = image.resize((w, h))
+    if ratio < 1.0:
+        w = int(w * ratio)
+        h = int(h * ratio)
 
-o_x = int((width - w) / 2)
-o_y = int((height - h) / 2)
-"""
+        image = image.resize((w, h))
 
-o_x = (width - new_w) // 2
-o_y = (height - new_h) // 2
+    o_x = int((width - w) / 2)
+    o_y = int((height - h) / 2)
+    """
 
-qr = qrcode.QRCode(
-    version=1,
-    box_size=2,
-    border=2
-)
-qr.add_data(media_url)
-qr.make(fit=True)
-qr_image = qr.make_image(fill_color="black", back_color="white").get_image()
-qr_w, qr_h = qr_image.size
-qr_x = width - qr_w - FOOTER_MARGIN
-qr_y = height - qr_h - FOOTER_MARGIN - 20
+    o_x = (width - new_w) // 2
+    o_y = (height - new_h) // 2
 
-text_x = FOOTER_MARGIN
-text_y = qr_y
+    qr = qrcode.QRCode(
+        version=1,
+        box_size=2,
+        border=2
+    )
+    qr.add_data(media_url)
+    qr.make(fit=True)
+    qr_image = qr.make_image(fill_color="black", back_color="white").get_image()
+    qr_w, qr_h = qr_image.size
+    qr_x = width - qr_w - FOOTER_MARGIN
+    qr_y = height - qr_h - FOOTER_MARGIN - 20
 
-output_image = Image.new("RGB", (width, height), color=(255, 255, 255))
+    text_x = FOOTER_MARGIN
+    text_y = qr_y
 
-draw = ImageDraw.Draw(output_image)
+    output_image = Image.new("RGB", (width, height), color=(255, 255, 255))
 
-output_image.paste(image, (o_x, o_y, o_x + new_w, o_y + new_h))
+    draw = ImageDraw.Draw(output_image)
 
-if INCLUDE_TEXT:
-    output_image.paste(qr_image, (qr_x, qr_y, qr_x + qr_w, qr_y + qr_h))
+    output_image.paste(image, (o_x, o_y, o_x + new_w, o_y + new_h))
 
-    text = metadata.get("title")
+    if INCLUDE_TEXT:
+        output_image.paste(qr_image, (qr_x, qr_y, qr_x + qr_w, qr_y + qr_h))
 
-    text_in_rect(draw, text, font, (0, 0, 0), (255, 255, 255), (text_x, text_y, qr_x - FOOTER_MARGIN, text_y + qr_h), line_spacing=1.1)
-    text_in_rect(draw, "nasa.gov", font, (0, 0, 0), (255, 255, 255), (qr_x, qr_y + qr_h, qr_x + qr_w, qr_y + qr_h + 20))
+        text = metadata.get("title")
 
-dimensions = ""
-if (width, height) != (DEFAULT_WIDTH, DEFAULT_HEIGHT):
-    dimensions = f"-{width}x{height}"
+        text_in_rect(draw, text, font, (0, 0, 0), (255, 255, 255), (text_x, text_y, qr_x - FOOTER_MARGIN, text_y + qr_h), line_spacing=1.1)
+        text_in_rect(draw, "nasa.gov", font, (0, 0, 0), (255, 255, 255), (qr_x, qr_y + qr_h, qr_x + qr_w, qr_y + qr_h + 20))
 
-output_image.save(f"{OUTPUT_DIR}/nasa-apod{dimensions}-{suffix}.jpg")
+    dimensions = ""
+    if (width, height) != (DEFAULT_WIDTH, DEFAULT_HEIGHT):
+        dimensions = f"-{width}x{height}"
+
+    output = f"{OUTPUT_DIR}/nasa-apod{dimensions}-{suffix}.jpg"
+    print(f"Saving {output}")
+    output_image.save(output)

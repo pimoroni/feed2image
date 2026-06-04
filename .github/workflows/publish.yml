@@ -23,6 +23,8 @@ jobs:
 
       - name: Build Resources
         shell: bash
+        env:
+          NASA_APOD_KEY: ${{ secrets.NASA_APOD_KEY }}
         run: scripts/build.sh ${GITHUB_SHA}
 
       - name: Deploy

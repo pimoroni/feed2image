@@ -10,6 +10,9 @@ import sys
 import json
 
 """
+0.0.4
+- update to new Joke API URL at git.sv433.net
+
 0.0.3
 - filter some jokes
 - output full text of processed jokes to .json
@@ -19,14 +22,14 @@ import json
 """
 
 
-GENERATOR_VERSION = "0.0.3"  # Bump to force a hash check fail!
+GENERATOR_VERSION = "0.0.4"  # Bump to force a hash check fail!
 DEFAULT_WIDTH = 600
 DEFAULT_HEIGHT = 448
 FOOTER_MARGIN = 10
 OUTPUT_DIR = "build"
 
 JOKES_FILE = "jokes-en.json"
-JOKES = f"https://raw.githubusercontent.com/Sv443-Network/JokeAPI/refs/heads/main/data/jokes/regular/{JOKES_FILE}"
+JOKES = f"https://git.sv443.net/Sv443/JokeAPI-v2/raw/main/data/jokes/{JOKES_FILE}"
 HASH_FILE = f"{JOKES_FILE}.sha256.txt"
 HASH_URL = f"https://pimoroni.github.io/feed2image/{HASH_FILE}"
 
@@ -34,13 +37,26 @@ HASH_URL = f"https://pimoroni.github.io/feed2image/{HASH_FILE}"
 # The "safe" jokes list is subjective
 # filter out a few we probably don't want to sign off on!
 FILTER_JOKES = [
+    38,   # What is this, the sixties?
+    41,   # Would be fine if it didn't start "hey girl," it's a joke not the flippin' Chemical Brothers
+    42,   # The 1990s called, Internet Explorer is just Chrome now.
+    45,   # Nobody cares about Java
+    51,   # ...
     136,  # Yeesh
     76,   # I'm part deaf, okay!
+    84,   # No.
     87,   # ISWU
     114,  # Uhhh
+    165,  # Eh, bleak. Too close to home.
+    168,  # No
     169,  # While I'm being a pedant
+    176,  # Ugh.
     188,  # Based.
+    205,  # No.
     206,  # Cancelled.
+    264,  # Meh.
+    281,  # Lot of words for very little payoff. Also meh.
+    305,  # https://www.youtube.com/watch?v=RO6JiFztJdg
 ]
 
 
