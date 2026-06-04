@@ -6,6 +6,7 @@ import qrcode
 import math
 import json
 import sys
+import os
 
 DEFAULT_WIDTH = 600
 DEFAULT_HEIGHT = 448
@@ -13,6 +14,9 @@ FOOTER_MARGIN = 10
 OUTPUT_DIR = "build"
 TEXT_BOX_PADDING = 5
 INCLUDE_TEXT = False
+
+
+API_KEY = os.getenv("NASA_APOD_KEY", "DEMO_KEY")
 
 
 font = ImageFont.truetype(Roboto, 18)
@@ -89,8 +93,10 @@ except (IndexError, ValueError):
     apod_date = str(datetime.datetime.now().date())
     suffix = "daily"
 
-apod_url = f"https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY&thumbs=true&date={apod_date}"
+apod_url = f"https://api.nasa.gov/planetary/apod?api_key=XXXXX&thumbs=true&date={apod_date}"
 print(f"Fetching: {apod_url}")
+
+apod_url = f"https://api.nasa.gov/planetary/apod?api_key={API_KEY}&thumbs=true&date={apod_date}"
 response = requests.get(apod_url)
 
 try:
