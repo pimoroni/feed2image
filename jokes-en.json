@@ -512,21 +512,6 @@
     {
         "category": "Programming",
         "type": "single",
-        "joke": "A man is smoking a cigarette and blowing smoke rings into the air. His girlfriend becomes irritated with the smoke and says \"Can't you see the warning on the cigarette pack? Smoking is hazardous to your health!\" to which the man replies, \"I am a programmer.  We don't worry about warnings; we only worry about errors.\"",
-        "flags": {
-            "nsfw": false,
-            "religious": false,
-            "political": false,
-            "racist": false,
-            "sexist": false,
-            "explicit": false
-        },
-        "id": 38,
-        "safe": true
-    },
-    {
-        "category": "Programming",
-        "type": "single",
         "joke": "The generation of random numbers is too important to be left to chance.",
         "flags": {
             "nsfw": false,
@@ -552,36 +537,6 @@
             "explicit": false
         },
         "id": 40,
-        "safe": true
-    },
-    {
-        "category": "Programming",
-        "type": "single",
-        "joke": "Hey Girl,\nRoses are #ff0000,\nViolets are #0000ff,\nI use hex codes,\nBut I'd use RGB for you.",
-        "flags": {
-            "nsfw": false,
-            "religious": false,
-            "political": false,
-            "racist": false,
-            "sexist": false,
-            "explicit": false
-        },
-        "id": 41,
-        "safe": true
-    },
-    {
-        "category": "Programming",
-        "type": "single",
-        "joke": "Debugging is like being the detective in a crime movie where you're also the murderer at the same time.",
-        "flags": {
-            "nsfw": false,
-            "religious": false,
-            "political": false,
-            "racist": false,
-            "sexist": false,
-            "explicit": false
-        },
-        "id": 42,
         "safe": true
     },
     {
@@ -616,21 +571,6 @@
     },
     {
         "category": "Programming",
-        "type": "single",
-        "joke": "Judge: \"I sentence you to the maximum punishment...\"\nMe (thinking): \"Please be death, please be death...\"\nJudge: \"Learn Java!\"\nMe: \"Damn.\"",
-        "flags": {
-            "nsfw": false,
-            "religious": false,
-            "political": false,
-            "racist": false,
-            "sexist": false,
-            "explicit": false
-        },
-        "id": 45,
-        "safe": true
-    },
-    {
-        "category": "Programming",
         "type": "twopart",
         "setup": "What's the object-oriented way to become wealthy?",
         "delivery": "Inheritance.",
@@ -658,7 +598,7 @@
             "sexist": false,
             "explicit": false
         },
-        "id": 48,
+        "id": 47,
         "safe": true
     },
     {
@@ -674,7 +614,7 @@
             "sexist": false,
             "explicit": false
         },
-        "id": 49,
+        "id": 48,
         "safe": true
     },
     {
@@ -690,7 +630,7 @@
             "sexist": false,
             "explicit": false
         },
-        "id": 50,
+        "id": 49,
         "safe": true
     },
     {
@@ -705,23 +645,7 @@
             "sexist": false,
             "explicit": false
         },
-        "id": 51,
-        "safe": true
-    },
-    {
-        "category": "Programming",
-        "type": "twopart",
-        "setup": "So what's a set of predefined steps the government might take to preserve the environment?",
-        "delivery": "An Al-Gore-ithm.",
-        "flags": {
-            "nsfw": false,
-            "religious": false,
-            "political": false,
-            "racist": false,
-            "sexist": false,
-            "explicit": false
-        },
-        "id": 52,
+        "id": 50,
         "safe": true
     },
     {
@@ -737,7 +661,7 @@
             "sexist": false,
             "explicit": false
         },
-        "id": 53,
+        "id": 52,
         "safe": true
     },
     {
@@ -753,7 +677,7 @@
             "sexist": false,
             "explicit": false
         },
-        "id": 54,
+        "id": 53,
         "safe": true
     },
     {
@@ -769,7 +693,7 @@
             "sexist": false,
             "explicit": false
         },
-        "id": 56,
+        "id": 55,
         "safe": true
     },
     {
@@ -784,7 +708,7 @@
             "sexist": false,
             "explicit": false
         },
-        "id": 57,
+        "id": 56,
         "safe": true
     },
     {
@@ -800,7 +724,7 @@
             "sexist": false,
             "explicit": false
         },
-        "id": 58,
+        "id": 57,
         "safe": true
     },
     {
@@ -816,7 +740,7 @@
             "sexist": false,
             "explicit": false
         },
-        "id": 59,
+        "id": 58,
         "safe": true
     },
     {
@@ -832,7 +756,7 @@
             "sexist": false,
             "explicit": false
         },
-        "id": 65,
+        "id": 64,
         "safe": true
     },
     {
@@ -848,7 +772,7 @@
             "sexist": false,
             "explicit": false
         },
-        "id": 67,
+        "id": 66,
         "safe": true
     },
     {
@@ -863,7 +787,7 @@
             "sexist": false,
             "explicit": false
         },
-        "id": 73,
+        "id": 72,
         "safe": true
     },
     {
@@ -878,7 +802,23 @@
             "sexist": false,
             "explicit": false
         },
-        "id": 74,
+        "id": 73,
+        "safe": true
+    },
+    {
+        "category": "Misc",
+        "type": "twopart",
+        "setup": "What is the least spoken language in the world?",
+        "delivery": "Sign language.",
+        "flags": {
+            "nsfw": false,
+            "religious": false,
+            "political": false,
+            "racist": false,
+            "sexist": false,
+            "explicit": false
+        },
+        "id": 75,
         "safe": true
     },
     {
@@ -894,7 +834,7 @@
             "sexist": false,
             "explicit": false
         },
-        "id": 78,
+        "id": 77,
         "safe": true
     },
     {
@@ -910,7 +850,7 @@
             "sexist": false,
             "explicit": false
         },
-        "id": 80,
+        "id": 79,
         "safe": true
     },
     {
@@ -926,7 +866,7 @@
             "sexist": false,
             "explicit": false
         },
-        "id": 81,
+        "id": 80,
         "safe": true
     },
     {
@@ -942,14 +882,14 @@
             "sexist": false,
             "explicit": false
         },
-        "id": 86,
+        "id": 85,
         "safe": true
     },
     {
-        "category": "Misc",
+        "category": "Pun",
         "type": "twopart",
-        "setup": "Mom asked me where I'm taking her to go out to eat for mother's day.",
-        "delivery": "I told her, \"We already have food in the house\".",
+        "setup": "I hate Russian matryoshka dolls.",
+        "delivery": "They're so full of themselves.",
         "flags": {
             "nsfw": false,
             "religious": false,
@@ -958,7 +898,7 @@
             "sexist": false,
             "explicit": false
         },
-        "id": 88,
+        "id": 86,
         "safe": true
     },
     {
@@ -973,7 +913,7 @@
             "sexist": false,
             "explicit": false
         },
-        "id": 90,
+        "id": 89,
         "safe": true
     },
     {
@@ -989,7 +929,7 @@
             "sexist": false,
             "explicit": false
         },
-        "id": 92,
+        "id": 91,
         "safe": true
     },
     {
@@ -1005,7 +945,7 @@
             "sexist": false,
             "explicit": false
         },
-        "id": 94,
+        "id": 93,
         "safe": true
     },
     {
@@ -1020,7 +960,7 @@
             "sexist": false,
             "explicit": false
         },
-        "id": 123,
+        "id": 122,
         "safe": true
     },
     {
@@ -1036,7 +976,7 @@
             "sexist": false,
             "explicit": false
         },
-        "id": 125,
+        "id": 124,
         "safe": true
     },
     {
@@ -1051,7 +991,7 @@
             "sexist": false,
             "explicit": false
         },
-        "id": 126,
+        "id": 125,
         "safe": true
     },
     {
@@ -1067,7 +1007,7 @@
             "sexist": false,
             "explicit": false
         },
-        "id": 127,
+        "id": 126,
         "safe": true
     },
     {
@@ -1083,23 +1023,7 @@
             "sexist": false,
             "explicit": false
         },
-        "id": 130,
-        "safe": true
-    },
-    {
-        "category": "Pun",
-        "type": "twopart",
-        "setup": "How does a Jewish person make tea?",
-        "delivery": "Hebrews it.",
-        "flags": {
-            "nsfw": false,
-            "religious": true,
-            "political": false,
-            "racist": false,
-            "sexist": false,
-            "explicit": false
-        },
-        "id": 131,
+        "id": 129,
         "safe": true
     },
     {
@@ -1114,7 +1038,7 @@
             "sexist": false,
             "explicit": false
         },
-        "id": 132,
+        "id": 131,
         "safe": true
     },
     {
@@ -1129,7 +1053,7 @@
             "sexist": false,
             "explicit": false
         },
-        "id": 139,
+        "id": 138,
         "safe": true
     },
     {
@@ -1145,7 +1069,7 @@
             "sexist": false,
             "explicit": false
         },
-        "id": 140,
+        "id": 139,
         "safe": true
     },
     {
@@ -1161,7 +1085,7 @@
             "sexist": false,
             "explicit": false
         },
-        "id": 141,
+        "id": 140,
         "safe": true
     },
     {
@@ -1177,7 +1101,7 @@
             "sexist": false,
             "explicit": false
         },
-        "id": 146,
+        "id": 145,
         "safe": true
     },
     {
@@ -1193,7 +1117,7 @@
             "sexist": false,
             "explicit": false
         },
-        "id": 147,
+        "id": 146,
         "safe": true
     },
     {
@@ -1209,7 +1133,7 @@
             "sexist": false,
             "explicit": false
         },
-        "id": 148,
+        "id": 147,
         "safe": true
     },
     {
@@ -1225,7 +1149,7 @@
             "sexist": false,
             "explicit": false
         },
-        "id": 168,
+        "id": 167,
         "safe": true
     },
     {
@@ -1241,14 +1165,14 @@
             "sexist": false,
             "explicit": false
         },
-        "id": 171,
+        "id": 170,
         "safe": true
     },
     {
         "category": "Pun",
         "type": "twopart",
         "setup": "What do you call a witch at the beach?",
-        "delivery": "A sandwich.",
+        "delivery": "A Sandwich.",
         "flags": {
             "nsfw": false,
             "religious": false,
@@ -1257,23 +1181,7 @@
             "sexist": false,
             "explicit": false
         },
-        "id": 176,
-        "safe": true
-    },
-    {
-        "category": "Pun",
-        "type": "twopart",
-        "setup": "What do you call 4 Mexicans in quicksand?",
-        "delivery": "Quatro Sinko.",
-        "flags": {
-            "nsfw": false,
-            "religious": false,
-            "political": false,
-            "racist": false,
-            "sexist": false,
-            "explicit": false
-        },
-        "id": 177,
+        "id": 175,
         "safe": true
     },
     {
@@ -1288,7 +1196,7 @@
             "sexist": false,
             "explicit": false
         },
-        "id": 180,
+        "id": 179,
         "safe": true
     },
     {
@@ -1304,7 +1212,7 @@
             "sexist": false,
             "explicit": false
         },
-        "id": 182,
+        "id": 181,
         "safe": true
     },
     {
@@ -1320,7 +1228,7 @@
             "sexist": false,
             "explicit": false
         },
-        "id": 183,
+        "id": 182,
         "safe": true
     },
     {
@@ -1335,7 +1243,7 @@
             "sexist": false,
             "explicit": false
         },
-        "id": 185,
+        "id": 184,
         "safe": true
     },
     {
@@ -1351,7 +1259,7 @@
             "sexist": false,
             "explicit": false
         },
-        "id": 190,
+        "id": 189,
         "safe": true
     },
     {
@@ -1366,7 +1274,7 @@
             "sexist": false,
             "explicit": false
         },
-        "id": 191,
+        "id": 190,
         "safe": true
     },
     {
@@ -1382,7 +1290,7 @@
             "sexist": false,
             "explicit": false
         },
-        "id": 192,
+        "id": 191,
         "safe": true
     },
     {
@@ -1398,7 +1306,7 @@
             "sexist": false,
             "explicit": false
         },
-        "id": 193,
+        "id": 192,
         "safe": true
     },
     {
@@ -1414,7 +1322,7 @@
             "political": false,
             "explicit": false
         },
-        "id": 194,
+        "id": 193,
         "safe": true
     },
     {
@@ -1429,7 +1337,7 @@
             "political": false,
             "explicit": false
         },
-        "id": 195,
+        "id": 194,
         "safe": true
     },
     {
@@ -1445,7 +1353,7 @@
             "sexist": false,
             "explicit": false
         },
-        "id": 196,
+        "id": 195,
         "safe": true
     },
     {
@@ -1460,7 +1368,7 @@
             "sexist": false,
             "explicit": false
         },
-        "id": 197,
+        "id": 196,
         "safe": true
     },
     {
@@ -1476,7 +1384,7 @@
             "sexist": false,
             "explicit": false
         },
-        "id": 198,
+        "id": 197,
         "safe": true
     },
     {
@@ -1492,7 +1400,7 @@
             "sexist": false,
             "explicit": false
         },
-        "id": 199,
+        "id": 198,
         "safe": true
     },
     {
@@ -1507,7 +1415,7 @@
             "sexist": false,
             "explicit": false
         },
-        "id": 200,
+        "id": 199,
         "safe": true
     },
     {
@@ -1522,7 +1430,7 @@
             "sexist": false,
             "explicit": false
         },
-        "id": 201,
+        "id": 200,
         "safe": true
     },
     {
@@ -1538,7 +1446,7 @@
             "sexist": false,
             "explicit": false
         },
-        "id": 209,
+        "id": 208,
         "safe": true
     },
     {
@@ -1554,7 +1462,7 @@
             "sexist": false,
             "explicit": false
         },
-        "id": 210,
+        "id": 209,
         "safe": true
     },
     {
@@ -1570,7 +1478,7 @@
             "sexist": false,
             "explicit": false
         },
-        "id": 211,
+        "id": 210,
         "safe": true
     },
     {
@@ -1581,12 +1489,12 @@
         "flags": {
             "nsfw": false,
             "religious": false,
-            "political": false,
+            "political": true,
             "racist": false,
             "sexist": false,
             "explicit": false
         },
-        "id": 212,
+        "id": 211,
         "safe": true
     },
     {
@@ -1597,12 +1505,12 @@
         "flags": {
             "nsfw": false,
             "religious": false,
-            "political": false,
+            "political": true,
             "racist": false,
             "sexist": false,
             "explicit": false
         },
-        "id": 213,
+        "id": 212,
         "safe": true
     },
     {
@@ -1618,7 +1526,7 @@
             "sexist": false,
             "explicit": false
         },
-        "id": 214,
+        "id": 213,
         "safe": true
     },
     {
@@ -1634,7 +1542,7 @@
             "sexist": false,
             "explicit": false
         },
-        "id": 215,
+        "id": 214,
         "safe": true
     },
     {
@@ -1650,7 +1558,7 @@
             "sexist": false,
             "explicit": false
         },
-        "id": 217,
+        "id": 216,
         "safe": true
     },
     {
@@ -1665,7 +1573,7 @@
             "sexist": false,
             "explicit": false
         },
-        "id": 220,
+        "id": 219,
         "safe": true
     },
     {
@@ -1680,7 +1588,7 @@
             "sexist": false,
             "explicit": false
         },
-        "id": 221,
+        "id": 220,
         "safe": true
     },
     {
@@ -1696,7 +1604,7 @@
             "sexist": false,
             "explicit": false
         },
-        "id": 222,
+        "id": 221,
         "safe": true
     },
     {
@@ -1712,7 +1620,7 @@
             "sexist": false,
             "explicit": false
         },
-        "id": 223,
+        "id": 222,
         "safe": true
     },
     {
@@ -1728,7 +1636,7 @@
             "sexist": false,
             "explicit": false
         },
-        "id": 226,
+        "id": 225,
         "safe": true
     },
     {
@@ -1744,7 +1652,7 @@
             "sexist": false,
             "explicit": false
         },
-        "id": 231,
+        "id": 230,
         "safe": true
     },
     {
@@ -1760,7 +1668,7 @@
             "sexist": false,
             "explicit": false
         },
-        "id": 232,
+        "id": 231,
         "safe": true
     },
     {
@@ -1776,7 +1684,7 @@
             "sexist": false,
             "explicit": false
         },
-        "id": 234,
+        "id": 233,
         "safe": true
     },
     {
@@ -1791,7 +1699,7 @@
             "sexist": false,
             "explicit": false
         },
-        "id": 235,
+        "id": 234,
         "safe": true
     },
     {
@@ -1806,7 +1714,7 @@
             "sexist": false,
             "explicit": false
         },
-        "id": 236,
+        "id": 235,
         "safe": true
     },
     {
@@ -1821,7 +1729,7 @@
             "sexist": false,
             "explicit": false
         },
-        "id": 238,
+        "id": 237,
         "safe": true
     },
     {
@@ -1837,14 +1745,30 @@
             "sexist": false,
             "explicit": false
         },
-        "id": 241,
+        "id": 240,
         "safe": true
     },
     {
         "category": "Christmas",
         "type": "twopart",
         "setup": "Why does Santa have three gardens?",
-        "delivery": "So he can \"ho ho ho\"!",
+        "delivery": "So he can 'ho ho ho'!",
+        "flags": {
+            "nsfw": false,
+            "religious": false,
+            "political": false,
+            "racist": false,
+            "sexist": false,
+            "explicit": false
+        },
+        "id": 241,
+        "safe": true
+    },
+    {
+        "category": "Christmas",
+        "type": "twopart",
+        "setup": "Why did Santa's helper see the doctor?",
+        "delivery": "Because he had a low \"elf\" esteem!",
         "flags": {
             "nsfw": false,
             "religious": false,
@@ -1854,22 +1778,6 @@
             "explicit": false
         },
         "id": 242,
-        "safe": true
-    },
-    {
-        "category": "Christmas",
-        "type": "twopart",
-        "setup": "Why did Santa's helper see the doctor?",
-        "delivery": "Because he had a low elf-esteem.",
-        "flags": {
-            "nsfw": false,
-            "religious": false,
-            "political": false,
-            "racist": false,
-            "sexist": false,
-            "explicit": false
-        },
-        "id": 243,
         "safe": true
     },
     {
@@ -1885,14 +1793,30 @@
             "sexist": false,
             "explicit": false
         },
+        "id": 243,
+        "safe": true
+    },
+    {
+        "category": "Christmas",
+        "type": "twopart",
+        "setup": "What says Oh Oh Oh?",
+        "delivery": "Santa walking backwards!",
+        "flags": {
+            "nsfw": false,
+            "religious": false,
+            "political": false,
+            "racist": false,
+            "sexist": false,
+            "explicit": false
+        },
         "id": 244,
         "safe": true
     },
     {
         "category": "Christmas",
         "type": "twopart",
-        "setup": "What says \"Oh Oh Oh\"?",
-        "delivery": "Santa walking backwards.",
+        "setup": "Who is Santa's favourite singer?",
+        "delivery": "Elf-is Presley!",
         "flags": {
             "nsfw": false,
             "religious": false,
@@ -1902,22 +1826,6 @@
             "explicit": false
         },
         "id": 245,
-        "safe": true
-    },
-    {
-        "category": "Christmas",
-        "type": "twopart",
-        "setup": "Who is Santa's favourite singer?",
-        "delivery": "Elf-is Presley.",
-        "flags": {
-            "nsfw": false,
-            "religious": false,
-            "political": false,
-            "racist": false,
-            "sexist": false,
-            "explicit": false
-        },
-        "id": 246,
         "safe": true
     },
     {
@@ -1933,14 +1841,14 @@
             "sexist": false,
             "explicit": false
         },
-        "id": 247,
+        "id": 246,
         "safe": true
     },
     {
         "category": "Christmas",
         "type": "twopart",
         "setup": "What do Santa's little helpers learn at school?",
-        "delivery": "The elf-abet.",
+        "delivery": "The elf-abet!\n",
         "flags": {
             "nsfw": false,
             "religious": false,
@@ -1949,7 +1857,7 @@
             "sexist": false,
             "explicit": false
         },
-        "id": 248,
+        "id": 247,
         "safe": true
     },
     {
@@ -1965,7 +1873,7 @@
             "sexist": false,
             "explicit": false
         },
-        "id": 249,
+        "id": 248,
         "safe": true
     },
     {
@@ -1981,7 +1889,7 @@
             "sexist": false,
             "explicit": false
         },
-        "id": 250,
+        "id": 249,
         "safe": true
     },
     {
@@ -1997,7 +1905,7 @@
             "sexist": false,
             "explicit": false
         },
-        "id": 252,
+        "id": 251,
         "safe": true
     },
     {
@@ -2013,7 +1921,7 @@
             "sexist": false,
             "explicit": false
         },
-        "id": 253,
+        "id": 252,
         "safe": true
     },
     {
@@ -2029,7 +1937,7 @@
             "sexist": false,
             "explicit": false
         },
-        "id": 254,
+        "id": 253,
         "safe": true
     },
     {
@@ -2045,7 +1953,7 @@
             "sexist": false,
             "explicit": false
         },
-        "id": 255,
+        "id": 254,
         "safe": true
     },
     {
@@ -2061,7 +1969,7 @@
             "sexist": false,
             "explicit": false
         },
-        "id": 256,
+        "id": 255,
         "safe": true
     },
     {
@@ -2076,7 +1984,7 @@
             "sexist": false,
             "explicit": false
         },
-        "id": 257,
+        "id": 256,
         "safe": true
     },
     {
@@ -2091,7 +1999,7 @@
             "sexist": false,
             "explicit": false
         },
-        "id": 259,
+        "id": 258,
         "safe": true
     },
     {
@@ -2108,7 +2016,7 @@
             "explicit": false
         },
         "safe": true,
-        "id": 260
+        "id": 259
     },
     {
         "category": "Programming",
@@ -2124,39 +2032,7 @@
             "explicit": false
         },
         "safe": true,
-        "id": 264
-    },
-    {
-        "category": "Programming",
-        "type": "twopart",
-        "setup": "Why did the database administrator leave his wife?",
-        "delivery": "She had one-to-many relationships.",
-        "flags": {
-            "nsfw": false,
-            "religious": false,
-            "political": false,
-            "racist": false,
-            "sexist": false,
-            "explicit": false
-        },
-        "safe": true,
-        "id": 265
-    },
-    {
-        "category": "Programming",
-        "type": "twopart",
-        "setup": "How did the programmer die in the shower?",
-        "delivery": "He read the shampoo bottle instructions: Lather. Rinse. Repeat.",
-        "flags": {
-            "nsfw": false,
-            "religious": false,
-            "political": false,
-            "racist": false,
-            "sexist": false,
-            "explicit": false
-        },
-        "safe": true,
-        "id": 266
+        "id": 263
     },
     {
         "category": "Pun",
@@ -2172,7 +2048,7 @@
             "explicit": false
         },
         "safe": true,
-        "id": 267
+        "id": 266
     },
     {
         "category": "Pun",
@@ -2188,7 +2064,7 @@
             "explicit": false
         },
         "safe": true,
-        "id": 268
+        "id": 267
     },
     {
         "category": "Pun",
@@ -2204,12 +2080,28 @@
             "explicit": false
         },
         "safe": true,
-        "id": 270
+        "id": 269
     },
     {
         "category": "Misc",
         "type": "single",
         "joke": "Never date a baker. They're too kneady.",
+        "flags": {
+            "nsfw": false,
+            "religious": false,
+            "political": false,
+            "racist": false,
+            "sexist": false,
+            "explicit": false
+        },
+        "safe": true,
+        "id": 270
+    },
+    {
+        "category": "Misc",
+        "type": "twopart",
+        "setup": "What does the mermaid wear to math class?",
+        "delivery": "Algae-bra.",
         "flags": {
             "nsfw": false,
             "religious": false,
@@ -2234,7 +2126,7 @@
             "explicit": false
         },
         "safe": true,
-        "id": 273
+        "id": 272
     },
     {
         "category": "Pun",
@@ -2250,7 +2142,7 @@
             "explicit": false
         },
         "safe": true,
-        "id": 276
+        "id": 275
     },
     {
         "category": "Misc",
@@ -2266,7 +2158,7 @@
             "explicit": false
         },
         "safe": true,
-        "id": 277
+        "id": 276
     },
     {
         "category": "Pun",
@@ -2282,13 +2174,13 @@
             "explicit": false
         },
         "safe": true,
-        "id": 278
+        "id": 277
     },
     {
         "category": "Pun",
         "type": "twopart",
-        "setup": "Which is faster, hot or cold?",
-        "delivery": "Hot, because you can catch a cold.",
+        "setup": "Which is faster, Hot or cold?",
+        "delivery": "Hot, because you can catch a cold",
         "flags": {
             "nsfw": false,
             "religious": false,
@@ -2298,12 +2190,12 @@
             "explicit": false
         },
         "safe": true,
-        "id": 279
+        "id": 278
     },
     {
         "category": "Pun",
         "type": "twopart",
-        "setup": "To prove he was right, the flat-earther walked to the end of the earth.",
+        "setup": "To prove he was right, the flat-earther walked to the end of the Earth.",
         "delivery": "He eventually came around.",
         "flags": {
             "nsfw": false,
@@ -2314,7 +2206,7 @@
             "explicit": false
         },
         "safe": true,
-        "id": 280
+        "id": 279
     },
     {
         "category": "Pun",
@@ -2330,23 +2222,7 @@
             "explicit": false
         },
         "safe": true,
-        "id": 281
-    },
-    {
-        "category": "Pun",
-        "type": "twopart",
-        "setup": "I was feeling depressed, my wife put her hand on my back and said \"Earth.\"",
-        "delivery": "It meant the world to me.",
-        "flags": {
-            "nsfw": false,
-            "religious": false,
-            "political": false,
-            "racist": false,
-            "sexist": false,
-            "explicit": false
-        },
-        "safe": true,
-        "id": 282
+        "id": 280
     },
     {
         "category": "Pun",
@@ -2362,7 +2238,7 @@
             "explicit": false
         },
         "safe": true,
-        "id": 283
+        "id": 282
     },
     {
         "category": "Pun",
@@ -2378,7 +2254,7 @@
             "explicit": false
         },
         "safe": true,
-        "id": 284
+        "id": 283
     },
     {
         "category": "Pun",
@@ -2394,12 +2270,13 @@
             "explicit": false
         },
         "safe": true,
-        "id": 285
+        "id": 284
     },
     {
         "category": "Pun",
-        "type": "single",
-        "joke": "A Roman walks into a bar, raises 2 fingers and says to the bartender \"five beers, please.\"",
+        "type": "twopart",
+        "setup": "A Roman walks into a bar and raises 2 fingers and says to the bartender...",
+        "delivery": "\"Five beers, please.\"",
         "flags": {
             "nsfw": false,
             "religious": false,
@@ -2409,7 +2286,7 @@
             "explicit": false
         },
         "safe": true,
-        "id": 286
+        "id": 285
     },
     {
         "category": "Pun",
@@ -2425,7 +2302,7 @@
             "explicit": false
         },
         "safe": true,
-        "id": 287
+        "id": 286
     },
     {
         "category": "Misc",
@@ -2440,7 +2317,7 @@
             "explicit": false
         },
         "safe": true,
-        "id": 288
+        "id": 287
     },
     {
         "category": "Pun",
@@ -2456,13 +2333,13 @@
             "explicit": false
         },
         "safe": true,
-        "id": 290
+        "id": 289
     },
     {
         "category": "Programming",
         "type": "twopart",
-        "setup": "Why was the Javascript developer sad?",
-        "delivery": "Because they didn't Node how to Express themself.",
+        "setup": "Why was the JavaScript developer sad?",
+        "delivery": "Because they didn't Node how to Express themself!",
         "flags": {
             "nsfw": false,
             "religious": false,
@@ -2472,7 +2349,7 @@
             "explicit": false
         },
         "safe": true,
-        "id": 292
+        "id": 291
     },
     {
         "category": "Christmas",
@@ -2488,7 +2365,7 @@
             "explicit": false
         },
         "safe": true,
-        "id": 293
+        "id": 292
     },
     {
         "category": "Programming",
@@ -2504,7 +2381,7 @@
             "explicit": false
         },
         "safe": true,
-        "id": 294
+        "id": 293
     },
     {
         "category": "Spooky",
@@ -2520,7 +2397,7 @@
             "explicit": false
         },
         "safe": true,
-        "id": 295
+        "id": 294
     },
     {
         "category": "Spooky",
@@ -2536,7 +2413,7 @@
             "explicit": false
         },
         "safe": true,
-        "id": 296
+        "id": 295
     },
     {
         "category": "Spooky",
@@ -2552,7 +2429,7 @@
             "explicit": false
         },
         "safe": true,
-        "id": 297
+        "id": 296
     },
     {
         "category": "Spooky",
@@ -2568,7 +2445,7 @@
             "explicit": false
         },
         "safe": true,
-        "id": 298
+        "id": 297
     },
     {
         "category": "Spooky",
@@ -2584,7 +2461,7 @@
             "explicit": false
         },
         "safe": true,
-        "id": 299
+        "id": 298
     },
     {
         "category": "Programming",
@@ -2599,7 +2476,7 @@
             "explicit": false
         },
         "safe": true,
-        "id": 301
+        "id": 300
     },
     {
         "category": "Pun",
@@ -2615,7 +2492,7 @@
             "explicit": false
         },
         "safe": true,
-        "id": 302
+        "id": 301
     },
     {
         "category": "Pun",
@@ -2631,7 +2508,7 @@
             "explicit": false
         },
         "safe": true,
-        "id": 303
+        "id": 302
     },
     {
         "category": "Misc",
@@ -2646,22 +2523,7 @@
             "explicit": false
         },
         "safe": true,
-        "id": 304
-    },
-    {
-        "category": "Misc",
-        "type": "single",
-        "joke": "Yo mama is so old, she knew Burger King while he was still a prince.",
-        "flags": {
-            "nsfw": false,
-            "religious": false,
-            "political": false,
-            "racist": false,
-            "sexist": false,
-            "explicit": false
-        },
-        "safe": true,
-        "id": 306
+        "id": 303
     },
     {
         "category": "Misc",
@@ -2677,7 +2539,7 @@
             "explicit": false
         },
         "safe": true,
-        "id": 308
+        "id": 307
     },
     {
         "category": "Pun",
@@ -2693,7 +2555,7 @@
             "explicit": false
         },
         "safe": true,
-        "id": 312
+        "id": 311
     },
     {
         "category": "Spooky",
@@ -2709,7 +2571,7 @@
             "explicit": false
         },
         "safe": true,
-        "id": 313
+        "id": 312
     },
     {
         "category": "Pun",
@@ -2725,7 +2587,7 @@
             "explicit": false
         },
         "safe": true,
-        "id": 314
+        "id": 313
     },
     {
         "category": "Pun",
@@ -2741,7 +2603,7 @@
             "explicit": false
         },
         "safe": true,
-        "id": 316
+        "id": 315
     },
     {
         "category": "Pun",
@@ -2757,7 +2619,7 @@
             "explicit": false
         },
         "safe": true,
-        "id": 317
+        "id": 316
     },
     {
         "category": "Pun",
@@ -2773,7 +2635,7 @@
             "explicit": false
         },
         "safe": true,
-        "id": 318
+        "id": 317
     },
     {
         "category": "Programming",
@@ -2788,6 +2650,6 @@
             "explicit": false
         },
         "safe": true,
-        "id": 319
+        "id": 318
     }
 ]
