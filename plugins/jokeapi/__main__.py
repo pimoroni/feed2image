@@ -19,14 +19,14 @@ import json
 """
 
 
-GENERATOR_VERSION = "0.0.3"  # Bump to force a hash check fail!
+GENERATOR_VERSION = "0.0.4"  # Bump to force a hash check fail!
 DEFAULT_WIDTH = 600
 DEFAULT_HEIGHT = 448
 FOOTER_MARGIN = 10
 OUTPUT_DIR = "build"
 
 JOKES_FILE = "jokes-en.json"
-JOKES = f"https://raw.githubusercontent.com/Sv443-Network/JokeAPI/refs/heads/main/data/jokes/regular/{JOKES_FILE}"
+JOKES = f"https://git.sv443.net/Sv443/JokeAPI-v2/raw/main/data/jokes/{JOKES_FILE}"
 HASH_FILE = f"{JOKES_FILE}.sha256.txt"
 HASH_URL = f"https://pimoroni.github.io/feed2image/{HASH_FILE}"
 
